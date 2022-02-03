@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz App</title>
+        <meta name='viewport' content='width=device-width, intial-scale=1.0'>
+        <link href='static/bootstrap.min.css' rel='stylesheet' media='screen'>  
+    </head>
+    <body>
+        <div>
+            Quiz App: 
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('login') }}"">Login</a>           
+            <a href="{{ url_for('logout') }}">logout</a>
+        </div>
+        <hr>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </body>
+</html>
